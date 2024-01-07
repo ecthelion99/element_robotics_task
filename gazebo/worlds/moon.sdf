@@ -86,7 +86,7 @@
     </model>
 
     
-    <model name="X1_config_6">
+    <model name="X1">
       <self_collide>true</self_collide>
       <pose>0 0 0.35 0 0 0</pose>
       <include merge="true">
@@ -110,12 +110,13 @@
       <plugin
         filename="ignition-gazebo-odometry-publisher-system"
         name="ignition::gazebo::systems::OdometryPublisher">
-        <odom_frame>X1_config_6/odom</odom_frame>
-        <robot_base_frame>X1_config_6</robot_base_frame>
+        <odom_frame>odom</odom_frame>
+        <robot_base_frame>base_link</robot_base_frame>
       </plugin>
     </model>
     
-    <physics type='ignored'>
+    <!-- physics type currently ignored in gazebo fortress -->
+    <physics type='ignored'> 
       <max_step_size>0.01</max_step_size>
       <real_time_factor>1</real_time_factor>
       <real_time_update_rate>100</real_time_update_rate>
