@@ -18,6 +18,8 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y python3-pip
+RUN mkdir -p /home/element/element_robotics_task/ros_ws
+RUN chown -R element:element /home/element/element_robotics_task/ros_ws
 ENV SHELL /bin/bash
 
 # ********************************************************

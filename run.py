@@ -1,6 +1,7 @@
+#!/usr/bin/env python3
+
 #credit for this script goes to the original authors: https://github.com/MonashRobotics/robot_containers
 
-#!/usr/bin/env python3
 """ Script to make it easier to build and run a container"""
 import argparse
 import logging
@@ -9,7 +10,8 @@ import sys
 from pathlib import Path
 
 # Configuration. Change these to suit your project.
-PROJECT_NAME = "element_robotics_assignment"
+PROJECT_NAME = "element_robotics_task"
+USERNAME = "element"
 DOCKERFILE = "./Dockerfile"
 BUILD_CONTEXT = "."
 
@@ -53,8 +55,9 @@ def create_container(image_name: str, container_name: str):
         --ulimit rtprio=99 \
         --ulimit rttime=-1 \
         --ulimit memlock=8428281856 \
-        --volume "$(pwd):/home/roboco/ros_ws/src/{PROJECT_NAME}" \
+        --volume "$(pwd):/home/{USERNAME}/{PROJECT_NAME}/ros_ws/src" \
         --name {container_name} \
+        -w "/home/{USERNAME}/{PROJECT_NAME}/ros_ws" \
         -it {image_name} \
         bash
     """
