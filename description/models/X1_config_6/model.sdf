@@ -44,7 +44,7 @@
                 <pose frame="">0.0812 0 0.245 0 0 0</pose>
                 <geometry>
                     <mesh>
-                        <uri>meshes/top_plate.dae</uri>
+                        <uri>package://description/models/X1_config_6/meshes/top_plate.dae</uri>
                     </mesh>
                 </geometry>
             </collision>
@@ -60,7 +60,7 @@
                 <pose frame="">0 0 0 0 0 -3.14159</pose>
                 <geometry>
                     <mesh>
-                        <uri>meshes/chassis.dae</uri>
+                        <uri>package://description/models/X1_config_6/meshes/chassis.dae</uri>
                     </mesh>
                 </geometry>
             </visual>
@@ -68,7 +68,7 @@
                 <pose frame="">0.485766 0.0844 0.124431 0 0 -3.14159</pose>
                 <geometry>
                     <mesh>
-                        <uri>meshes/headlight.dae</uri>
+                        <uri>package://description/models/X1_config_6/meshes/headlight.dae</uri>
                     </mesh>
                 </geometry>
             </visual>
@@ -76,7 +76,7 @@
                 <pose frame="">0.485766 -0.0844 0.124431 0 0 -3.14159</pose>
                 <geometry>
                     <mesh>
-                        <uri>meshes/headlight.dae</uri>
+                        <uri>package://description/models/X1_config_6/meshes/headlight.dae</uri>
                     </mesh>
                 </geometry>
             </visual>
@@ -84,7 +84,7 @@
                 <pose frame="">0.461459 0.216803 0.124431 0 0 -3.14159</pose>
                 <geometry>
                     <mesh>
-                        <uri>meshes/headlight.dae</uri>
+                        <uri>package://description/models/X1_config_6/meshes/headlight.dae</uri>
                     </mesh>
                 </geometry>
             </visual>
@@ -92,7 +92,7 @@
                 <pose frame="">0.066047 0.212211 0.209188 -3.14159 1.57079 -1.60259</pose>
                 <geometry>
                     <mesh>
-                        <uri>meshes/led.dae</uri>
+                        <uri>package://description/models/X1_config_6/package://description/models/X1_config_6/meshes/led.dae</uri>
                     </mesh>
                 </geometry>
             </visual>
@@ -100,7 +100,7 @@
                 <pose frame="">-0.066047 0.212211 0.209188 -3.14159 1.57079 -1.60259</pose>
                 <geometry>
                     <mesh>
-                        <uri>meshes/led.dae</uri>
+                        <uri>package://description/models/X1_config_6/meshes/led.dae</uri>
                     </mesh>
                 </geometry>
             </visual>
@@ -108,7 +108,7 @@
                 <pose frame="">-0.42493 0 0.209188 3.14159 1.57079 7e-06</pose>
                 <geometry>
                     <mesh>
-                        <uri>meshes/led.dae</uri>
+                        <uri>package://description/models/X1_config_6/meshes/led.dae</uri>
                     </mesh>
                 </geometry>
             </visual>
@@ -116,7 +116,7 @@
                 <pose frame="">-0.42493 0.13619 0.209188 3.14159 1.57079 7e-06</pose>
                 <geometry>
                     <mesh>
-                        <uri>meshes/led.dae</uri>
+                        <uri>package://description/models/X1_config_6/meshes/led.dae</uri>
                     </mesh>
                 </geometry>
             </visual>
@@ -124,7 +124,7 @@
                 <pose frame="">-0.42493 -0.13619 0.209188 3.14159 1.57079 7e-06</pose>
                 <geometry>
                     <mesh>
-                        <uri>meshes/led.dae</uri>
+                        <uri>package://description/models/X1_config_6/meshes/led.dae</uri>
                     </mesh>
                 </geometry>
             </visual>
@@ -132,7 +132,7 @@
                 <pose frame="">0.461459 -0.216803 0.124431 0 0 -3.14159</pose>
                 <geometry>
                     <mesh>
-                        <uri>meshes/headlight.dae</uri>
+                        <uri>package://description/models/X1_config_6/meshes/headlight.dae</uri>
                     </mesh>
                 </geometry>
             </visual>
@@ -140,7 +140,7 @@
                 <pose frame="">0.066047 -0.212211 0.209188 3.14159 1.57079 1.60259</pose>
                 <geometry>
                     <mesh>
-                        <uri>meshes/led.dae</uri>
+                        <uri>package://description/models/X1_config_6/meshes/led.dae</uri>
                     </mesh>
                 </geometry>
             </visual>
@@ -148,7 +148,7 @@
                 <pose frame="">-0.066047 -0.212211 0.209188 3.14159 1.57079 1.60259</pose>
                 <geometry>
                     <mesh>
-                        <uri>meshes/led.dae</uri>
+                        <uri>package://description/models/X1_config_6/meshes/led.dae</uri>
                     </mesh>
                 </geometry>
             </visual>
@@ -156,7 +156,7 @@
                 <pose frame="">0.0812 0 0.245 0 0 0</pose>
                 <geometry>
                     <mesh>
-                        <uri>meshes/top_plate.dae</uri>
+                        <uri>package://description/models/X1_config_6/meshes/top_plate.dae</uri>
                     </mesh>
                 </geometry>
             </visual>
@@ -485,7 +485,7 @@
             <visual name="visual">
                 <geometry>
                     <mesh>
-                        <uri>meshes/wheel.dae</uri>
+                        <uri>package://description/models/X1_config_6/meshes/wheel.dae</uri>
                     </mesh>
                 </geometry>
             </visual>
@@ -537,7 +537,7 @@
             <visual name="visual">
                 <geometry>
                     <mesh>
-                        <uri>meshes/wheel.dae</uri>
+                        <uri>package://description/models/X1_config_6/meshes/wheel.dae</uri>
                     </mesh>
                 </geometry>
             </visual>
@@ -589,7 +589,7 @@
             <visual name="visual">
                 <geometry>
                     <mesh>
-                        <uri>meshes/wheel.dae</uri>
+                        <uri>package://description/models/X1_config_6/meshes/wheel.dae</uri>
                     </mesh>
                 </geometry>
             </visual>
@@ -641,7 +641,7 @@
             <visual name="visual">
                 <geometry>
                     <mesh>
-                        <uri>meshes/wheel.dae</uri>
+                        <uri>package://description/models/X1_config_6/meshes/wheel.dae</uri>
                     </mesh>
                 </geometry>
             </visual>
