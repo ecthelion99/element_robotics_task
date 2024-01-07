@@ -14,11 +14,11 @@
 #   ros_type_name: "nav_msgs/msg/Odometry"
 #   gz_type_name: "gz.msgs.Odometry"
 #   direction: GZ_TO_ROS
-# - ros_topic_name: "/diff_drive/scan"
-#   gz_topic_name: "/scan"
-#   ros_type_name: "sensor_msgs/msg/LaserScan"
-#   gz_type_name: "gz.msgs.LaserScan"
-#   direction: GZ_TO_ROS
+- ros_topic_name: "/X1/pointcloud"
+  gz_topic_name: "/world/moon/model/X1/link/base_link/sensor/front_laser/scan/points"
+  ros_type_name: "sensor_msgs/msg/PointCloud2"
+  gz_type_name: "gz.msgs.PointCloudPacked"
+  direction: GZ_TO_ROS
 - ros_topic_name: "/joint_states"
   gz_topic_name: "/world/moon/model/X1/joint_state"
   ros_type_name: "sensor_msgs/msg/JointState"
