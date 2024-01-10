@@ -5,6 +5,7 @@ ARG USER_GID=$USER_UID
 
 RUN apt-get update && apt-get install -y \
     ros-humble-ros-gz \
+    ros-humble-navigation2 \
     && rm -rf /var/lib/apt/lists/*
 
 # Create the user

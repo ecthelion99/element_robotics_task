@@ -23,6 +23,11 @@ install(
   DESTINATION share/${PROJECT_NAME}/launch
 )
 
+install(
+  DIRECTORY params/
+  DESTINATION share/${PROJECT_NAME}/params
+)
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights

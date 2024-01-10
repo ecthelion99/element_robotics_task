@@ -68,11 +68,19 @@ def generate_launch_description():
         output='screen'
     )
 
+    # Currently using a static transform for map->odom, would usually use some sort of slam
+    slam_cmd = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'odom']
+    )
+
     return LaunchDescription([
         gz_sim,
         DeclareLaunchArgument('rviz', default_value='true',
                               description='Open RViz.'),
         bridge,
         robot_state_publisher,
-        rviz
+        rviz,
+        slam_cmd,
     ])

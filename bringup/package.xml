@@ -9,7 +9,7 @@
 
   <depend>ros_gz</depend>
   <depend>sdformat_urdf</depend>
-  <depend>joint_state_publisher_gui</depend>
+  <depend>navigation2</depend>
 
   <depend>description</depend>
   <depend>gazebo</depend>
