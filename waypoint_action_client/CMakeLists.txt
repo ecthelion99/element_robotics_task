@@ -16,6 +16,7 @@ find_package(geometry_msgs REQUIRED)
 
 install(PROGRAMS
         waypoint_action_client/waypoint_node.py
+        waypoint_action_client/estop_node.py
         DESTINATION lib/${PROJECT_NAME}
         )
 

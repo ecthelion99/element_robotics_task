@@ -8,15 +8,33 @@ from rclpy.node import Node
 
 from nav2_msgs.action import NavigateToPose, NavigateThroughPoses
 from geometry_msgs.msg import Pose, PoseStamped, Point, Quaternion
+from std_msgs.msg import Empty
 
 from tf_transformations import quaternion_from_euler
 
+class KeyboardListener:
+    def __init__(self):
+        self._pressed = False
+        keyboard.hook(self._key_event)
 
-class FibonacciActionClient(Node):
+    def _key_event(self, event):
+        if event.event_type == keyboard.KEY_DOWN:
+            self._pressed = True
+
+    def is_pressed(self):
+        return self._pressed
+
+    def reset(self):
+        self._pressed = False
+
+class WaypointActionClient(Node):
 
     def __init__(self):
         super().__init__('waypoint_action_client')
         self._action_client = ActionClient(self, NavigateThroughPoses, 'navigate_through_poses')
+        self._goal_handle = None
+
+        self._setop_subscriber = self.create_subscription(Empty, '/estop', self.estop_callback, 10)
 
     def get_waypoint(self):
         while True:
@@ -76,6 +94,7 @@ class FibonacciActionClient(Node):
 
     def goal_response_callback(self, future):
         goal_handle = future.result()
+        self._goal_handle = goal_handle
         if not goal_handle.accepted:
             self.get_logger().info('Goal rejected :(')
             return
@@ -87,19 +106,25 @@ class FibonacciActionClient(Node):
 
     def get_result_callback(self, future):
         result = future.result().result
-        print(f"Completed with error code {result.error_code}")
+        print("\nNavigation Complete or Interupted")
         self.get_waypoints()
         
 
     def feedback_callback(self, feedback_msg):
         feedback = feedback_msg.feedback
-        print(f"Waypoints remaning: {feedback.number_of_poses_remaining}, distance remaining: {feedback.distance_remaining}")
+        print(f"Waypoints remaning: {feedback.number_of_poses_remaining}, distance remaining: {feedback.distance_remaining}", end='\r')
+
+    def estop_callback(self, msg):
+        print("Recieved estop msg")
+        if self._goal_handle:
+            print('\nESTOP Recieved. Cancelling Goal')
+            self._goal_handle.cancel_goal_async()
 
 
 def main(args=None):
     rclpy.init(args=args)
 
-    action_client = FibonacciActionClient()
+    action_client = WaypointActionClient()
 
     action_client.get_waypoints()
 
