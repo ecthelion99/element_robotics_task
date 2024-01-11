@@ -30,11 +30,11 @@ def generate_launch_description():
     gz_sim = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')),
-        launch_arguments={'gz_args': PathJoinSubstitution([
+        launch_arguments={'gz_args': ['-r ', PathJoinSubstitution([
             pkg_project_gazebo,
             'worlds',
             'moon.sdf'
-        ])}.items(),
+        ])]}.items(),
     )
 
     # Takes the description and joint angles as inputs and publishes the 3D poses of the robot links
@@ -48,6 +48,8 @@ def generate_launch_description():
             {'robot_description': robot_desc},
         ]
     )
+
+
 
     # Visualize in RViz
     rviz = Node(
@@ -77,10 +79,14 @@ def generate_launch_description():
     )
 
     # Currently using a static transform for map->odom, can replace with a SLAM node, e.g. rtab-map
-    slam_cmd = Node(
+    slam = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
         arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'odom']
+    )
+
+    navigation = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(os.path.join(pkg_project_bringup, 'launch', 'navigation.launch.py'))
     )
 
     return LaunchDescription([
@@ -91,5 +97,6 @@ def generate_launch_description():
         robot_state_publisher,
         rviz,
         ukf_localization,
-        slam_cmd,
+        slam,
+        navigation,
     ])
