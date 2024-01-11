@@ -55,9 +55,8 @@ def create_container(image_name: str, container_name: str):
         --ulimit rtprio=99 \
         --ulimit rttime=-1 \
         --ulimit memlock=8428281856 \
-        --volume "$(pwd):/home/{USERNAME}/{PROJECT_NAME}/ros_ws/src" \
         --name {container_name} \
-        -w "/home/{USERNAME}/{PROJECT_NAME}/ros_ws" \
+        -w "/home/{USERNAME}/ros_ws" \
         -it {image_name} \
         bash
     """
