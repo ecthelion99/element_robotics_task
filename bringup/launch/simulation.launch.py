@@ -68,7 +68,15 @@ def generate_launch_description():
         output='screen'
     )
 
-    # Currently using a static transform for map->odom, would usually use some sort of slam
+    ukf_localization = Node(
+        package='robot_localization',
+        executable='ekf_node',
+        name='ekf_filter_node',
+        output='screen',
+        parameters=[os.path.join(pkg_project_bringup, 'params', 'ekf.yaml'), {"use_sim_time": True}],
+    )
+
+    # Currently using a static transform for map->odom, can replace with a SLAM node, e.g. rtab-map
     slam_cmd = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
@@ -82,5 +90,6 @@ def generate_launch_description():
         bridge,
         robot_state_publisher,
         rviz,
+        ukf_localization,
         slam_cmd,
     ])

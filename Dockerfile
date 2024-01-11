@@ -3,10 +3,12 @@ ARG USERNAME=element
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
+
 RUN apt-get update && apt-get install -y \
     ros-humble-ros-gz \
     ros-humble-navigation2 \
     ros-humble-tf-transformations \
+    ros-humble-robot-localization \
     && rm -rf /var/lib/apt/lists/*
 
 # Create the user
@@ -20,6 +22,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y python3-pip
+RUN pip3 install --no-cache-dir transforms3d
 RUN mkdir -p /home/element/element_robotics_task/ros_ws
 RUN chown -R element:element /home/element/element_robotics_task/ros_ws
 ENV SHELL /bin/bash
