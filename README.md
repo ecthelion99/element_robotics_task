@@ -1,5 +1,5 @@
 # element_robotics_task
-Trask for element robotics, robotics engineer application
+Task for element robotics, robotics engineer application
 
 
 ## Install
@@ -81,7 +81,7 @@ Many of these limitations where choices made so I could complete as much of the 
 - ESTOP: The estop functionality only interupts the action started by the `waypoint_action_client`. This should be made safer and the `/cmd_vel` should be set to zeros to stop the rover.
 - No Tests: Testing was not completed. This would have involved launching a headless simulation. Providing a set of goals and testing the `true` position when a goal is reached. The touch sensor also would have been used to check for collisions.
 - RVIZ issues: When using NavigateThroughPoses the goals are not shown as poses in rviz. When the action is cancelled the path still displays.
-- Range: There is a limited range.
+- Range: There is a limited range. Resolution of the global map could be decreased and map size increased to help improve it.
 
 ### TODO
 - [ ] Make Tests
